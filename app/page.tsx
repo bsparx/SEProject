@@ -1,100 +1,190 @@
-import Image from "next/image";
+import { 
+  Wallet, 
+  TrendingUp, 
+  PieChart, 
+  CheckCircle, 
+  Star, 
+  ChevronRight,
+  Coins,
+  BarChart3,
+  Layers
+} from "lucide-react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const LogoIcon = () => (
+    <div className="flex items-center justify-center bg-indigo-100 rounded-full p-3">
+      <Coins className="h-8 w-8 text-indigo-600" strokeWidth={2} />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-indigo-50 via-white to-indigo-100 font-inter antialiased">
+      {/* Animated Header with Blur Effect */}
+      <header className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-md shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4 md:space-x-10">
+            <div className="flex items-center space-x-4">
+              <LogoIcon />
+              <h1 className="text-2xl font-bold text-indigo-600 tracking-tight">
+                PennyPilot
+              </h1>
+            </div>
+            <nav className="hidden md:flex space-x-4">
+              <a 
+                href="#features" 
+                className="text-indigo-600 hover:text-indigo-800 transition-colors font-medium"
+              >
+                Features
+              </a>
+              <a 
+                href="#testimonials" 
+                className="text-indigo-600 hover:text-indigo-800 transition-colors font-medium"
+              >
+                Testimonials
+              </a>
+            </nav>
+            <div className="flex space-x-4">
+              <a
+                href="/sign-in"
+                className="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all"
+              >
+                Sign In
+              </a>
+              <a
+                href="/sign-up"
+                className="inline-flex items-center px-4 py-2 border border-indigo-600 text-sm font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all"
+              >
+                Get Started
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section with Animated Background */}
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 items-center gap-16 py-16">
+        <div className="space-y-6">
+          <div className="bg-indigo-100 rounded-full w-max px-4 py-2 text-indigo-700 text-sm font-medium">
+            💡 Financial Management Simplified
+          </div>
+          <h2 className="text-5xl font-extrabold text-gray-900 leading-tight">
+            Take Control of Your <span className="text-indigo-600">Financial Journey</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-xl">
+            Empower your financial future with intelligent budgeting, seamless expense tracking, and personalized insights that transform how you manage money.
+          </p>
+          <div className="flex space-x-4">
+            <a
+              href="/sign-up"
+              className="flex items-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors group"
+            >
+              Start Your Journey
+              <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#features"
+              className="flex items-center px-6 py-3 border border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+        <div className="hidden md:block relative">
+          <div className="absolute -inset-2 bg-indigo-200 rounded-full opacity-50 blur-2xl"></div>
+          <div className="relative z-10 flex items-center justify-center">
+            <Layers className="h-96 w-96 text-indigo-300" strokeWidth={1} />
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Features Section with Enhanced Cards */}
+      <section id="features" className="bg-white py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Powerful Features for Smart Finances
+          </h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Wallet,
+                title: "Smart Budgeting",
+                description: "Intelligent budget creation and tracking that adapts to your lifestyle.",
+                color: "text-green-500"
+              },
+              {
+                icon: TrendingUp,
+                title: "Expense Insights",
+                description: "Real-time tracking and categorization of every financial transaction.",
+                color: "text-blue-500"
+              },
+              {
+                icon: PieChart,
+                title: "Financial Analytics",
+                description: "Comprehensive reports and visualizations of your financial health.",
+                color: "text-purple-500"
+              }
+            ].map(({ icon: Icon, title, description, color }, index) => (
+              <div 
+                key={index} 
+                className="bg-white border border-gray-200 rounded-xl p-6 text-center transform transition-all hover:scale-105 hover:shadow-lg"
+              >
+                <div className={`mb-4 flex items-center justify-center ${color}`}>
+                  <Icon className="h-12 w-12" strokeWidth={1.5} />
+                </div>
+                <h4 className="text-xl font-semibold text-gray-800 mb-3">{title}</h4>
+                <p className="text-gray-600">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section with Hover Effects */}
+      <section id="testimonials" className="bg-indigo-50 py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            What Our Users Say
+          </h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                quote: "PennyPilot transformed my financial management. The insights helped me save 20% more each month!",
+                name: "Jane D.",
+                rating: 5
+              },
+              {
+                quote: "I love how intuitive and powerful the budget tracking is. It's like having a financial advisor in my pocket.",
+                name: "Mark T.",
+                rating: 5
+              }
+            ].map(({ quote, name, rating }, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-xl p-6 shadow-md transform transition-all hover:scale-105 hover:shadow-xl"
+              >
+                <div className="flex text-yellow-400 mb-4">
+                  {[...Array(rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-current" />
+                  ))}
+                </div>
+                <p className="italic text-gray-600 mb-4">"{quote}"</p>
+                <div className="font-semibold text-indigo-800">{name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer with Social Links */}
+      <footer className="bg-indigo-900 text-white py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="mb-4">© 2024 PennyPilot. All Rights Reserved.</p>
+          <div className="flex justify-center space-x-6">
+            {/* Social links would go here */}
+          </div>
+        </div>
       </footer>
     </div>
   );
