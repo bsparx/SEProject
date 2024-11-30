@@ -12,3 +12,21 @@ export async function getUser() {
 
   return match;
 }
+
+export async function getAllExpenses(query) {
+  const user = await getUser();
+  const expenses = await prisma.expense.findMany({
+    where: {
+      OR: [
+        {
+          userId: user?.id,
+          description: {
+            contains: query,
+          },
+        },
+      ],
+    },
+  });
+
+  return expenses;
+}

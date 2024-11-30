@@ -67,7 +67,7 @@ export default function Home() {
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 items-center gap-16 py-16">
         <div className="space-y-6">
           <div className="bg-indigo-100 rounded-full w-max px-4 py-2 text-indigo-700 text-sm font-medium">
-            💡 Financial Management Simplified
+          💸 Financial Management Simplified
           </div>
           <h2 className="text-5xl font-extrabold text-gray-900 leading-tight">
             Take Control of Your <span className="text-indigo-600">Financial Journey</span>
