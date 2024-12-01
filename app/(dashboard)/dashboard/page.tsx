@@ -12,8 +12,6 @@ import {
   DollarSign
 } from "lucide-react";
 
-
-
 // Helper function to format date
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString('en-US', {
@@ -51,19 +49,18 @@ const incomeCategoryIcons = {
 };
 
 export default async function DashboardPage() {
-  const totalExpense = await getTotalExpense();
-  const totalIncome = await getTotalIncome();
+  // Ensure these functions handle potential null/undefined cases
+  const totalExpense = await getTotalExpense() ?? 0;
+  const totalIncome = await getTotalIncome() ?? 0;
   const currentBalance = totalIncome - totalExpense;
 
-  const recentExpenses = await getRecentExpenses();
-  const recentIncomes = await getRecentIncomes();
+  // Ensure these functions return an empty array if no results
+  const recentExpenses = (await getRecentExpenses()) ?? [];
+  const recentIncomes = (await getRecentIncomes()) ?? [];
 
   return (
     <div className="min-h-screen bg-gray-50 p-6 relative">
       <div className="max-w-6xl mx-auto">
-        {/* Header without the Penny Pilot title */}
-
-
         {/* Financial Overview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {/* Total Income Card */}
@@ -176,22 +173,19 @@ export default async function DashboardPage() {
 
       {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-6 flex flex-col space-y-4">
+        <Link href="/addIncome">
+          <button className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors flex items-center justify-center">
+            <TrendingUp className="w-6 h-6 mr-3" />
+            <h1>Add Incomes</h1>
+          </button>
+        </Link>
   
-          <Link href="/addIncome">
-            <button className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors flex items-center justify-center">
-              <TrendingUp className="w-6 h-6 mr-3" />
-              <h1>   Add Incomes</h1>
-            </button>
-          </Link>
-       
-  
-          <Link href="/addExpense">
-            <button className="bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-colors flex items-center justify-center">
-              <PlusCircle className="w-6 h-6 mr-3" />
-              <h1>Add Expense</h1>
-            </button>
-          </Link>
-       
+        <Link href="/addExpense">
+          <button className="bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-colors flex items-center justify-center">
+            <PlusCircle className="w-6 h-6 mr-3" />
+            <h1>Add Expense</h1>
+          </button>
+        </Link>
       </div>
     </div>
   );
