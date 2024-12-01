@@ -15,7 +15,7 @@ export async function createExpense(previousInput, formdata: FormData) {
     },
   });
 
-  redirect("/dashboard");
+  redirect("/expenses");
 }
 
 export async function createIncome(previousInput, formdata: FormData) {
@@ -29,6 +29,6 @@ export async function createIncome(previousInput, formdata: FormData) {
       },
     });
   
-    redirect("/dashboard");
+    redirect("/incomes");
   }
   

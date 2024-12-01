@@ -15,6 +15,7 @@ export async function getUser() {
 
 export async function getAllExpenses(query) {
   const user = await getUser();
+
   const expenses = await prisma.expense.findMany({
     where: {
       OR: [
@@ -22,6 +23,7 @@ export async function getAllExpenses(query) {
           userId: user?.id,
           description: {
             contains: query,
+            mode: "insensitive",
           },
         },
       ],
@@ -29,4 +31,86 @@ export async function getAllExpenses(query) {
   });
 
   return expenses;
+}
+
+export async function getAllIncomes(query) {
+  const user = await getUser();
+
+  const expenses = await prisma.income.findMany({
+    where: {
+      OR: [
+        {
+          userId: user?.id,
+          source: {
+            contains: query,
+            mode: "insensitive",
+          },
+        },
+      ],
+    },
+  });
+
+  return expenses;
+}
+
+export async function getTotalExpense() {
+  const user = await getUser();
+
+  const amount = await prisma.expense.aggregate({
+    where: {
+      userId: user?.id,
+    },
+    _sum: {
+      amount: true,
+    },
+  });
+
+  return amount._sum.amount;
+}
+
+export async function getTotalIncome() {
+  const user = await getUser();
+
+  const amount = await prisma.income.aggregate({
+    where: {
+      userId: user?.id,
+    },
+    _sum: {
+      amount: true,
+    },
+  });
+
+  return amount._sum.amount;
+}
+
+export async function getRecentExpenses() {
+  const user = await getUser();
+
+  const incomes = await prisma.expense.findMany({
+    where: {
+      userId: user?.id,
+    },
+    take: 8,
+    orderBy: {
+      date: "desc",
+    },
+  });
+
+  return incomes;
+}
+
+export async function getRecentIncomes() {
+  const user = await getUser();
+
+  const income = await prisma.income.findMany({
+    where: {
+      userId: user?.id,
+    },
+    take: 8,
+    orderBy: {
+      date: "desc",
+    },
+  });
+
+  return income;
 }

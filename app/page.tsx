@@ -2,11 +2,9 @@ import {
   Wallet, 
   TrendingUp, 
   PieChart, 
-  CheckCircle, 
   Star, 
   ChevronRight,
   Coins,
-  BarChart3,
   Layers
 } from "lucide-react";
 
