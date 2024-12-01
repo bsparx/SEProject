@@ -101,7 +101,7 @@ export default async function DashboardPage() {
 
         {/* Recent Activities Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
+        <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 border-2 border-green-600">
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center space-x-2">
                 <DollarSign className="w-6 h-6 text-green-500" />
@@ -134,7 +134,7 @@ export default async function DashboardPage() {
             )}
           </div>
           {/* Recent Expenses */}
-          <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
+          <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 border-2 border-red-600">
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center space-x-2">
                 <Receipt className="w-6 h-6 text-red-500" />
@@ -167,7 +167,7 @@ export default async function DashboardPage() {
             )}
           </div>
 
-          {/* Recent Incomes */}
+   
        
         </div>
       </div>
