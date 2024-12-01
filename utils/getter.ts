@@ -90,7 +90,7 @@ export async function getRecentExpenses() {
     where: {
       userId: user?.id,
     },
-    take: 8,
+    take: 6,
     orderBy: {
       date: "desc",
     },
@@ -106,7 +106,7 @@ export async function getRecentIncomes() {
     where: {
       userId: user?.id,
     },
-    take: 8,
+    take: 6,
     orderBy: {
       date: "desc",
     },

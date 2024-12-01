@@ -49,21 +49,21 @@ const incomeCategoryIcons = {
 };
 
 export default async function DashboardPage() {
-  // Ensure these functions handle potential null/undefined cases
+
   const totalExpense = await getTotalExpense() ?? 0;
   const totalIncome = await getTotalIncome() ?? 0;
   const currentBalance = totalIncome - totalExpense;
 
-  // Ensure these functions return an empty array if no results
+ 
   const recentExpenses = (await getRecentExpenses()) ?? [];
   const recentIncomes = (await getRecentIncomes()) ?? [];
 
   return (
     <div className="min-h-screen bg-gray-50 p-6 relative">
       <div className="max-w-6xl mx-auto">
-        {/* Financial Overview */}
+      
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {/* Total Income Card */}
+   
           <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500 hover:shadow-2xl transition-shadow duration-300">
             <div className="flex justify-between items-center">
               <div>
@@ -74,7 +74,7 @@ export default async function DashboardPage() {
             </div>
           </div>
 
-          {/* Total Expenses Card */}
+
           <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-500 hover:shadow-2xl transition-shadow duration-300">
             <div className="flex justify-between items-center">
               <div>
@@ -85,7 +85,7 @@ export default async function DashboardPage() {
             </div>
           </div>
 
-          {/* Current Balance Card */}
+    
           <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500 hover:shadow-2xl transition-shadow duration-300">
             <div className="flex justify-between items-center">
               <div>
@@ -101,6 +101,38 @@ export default async function DashboardPage() {
 
         {/* Recent Activities Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center space-x-2">
+                <DollarSign className="w-6 h-6 text-green-500" />
+                <h2 className="text-xl font-semibold text-gray-800">Recent Incomes</h2>
+              </div>
+              <Link href="/incomes" className="text-blue-500 hover:underline flex items-center">
+                View All <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
+
+            {recentIncomes.length === 0 ? (
+              <p className="text-gray-500 text-center">No recent incomes</p>
+            ) : (
+              <div className="space-y-3">
+                {recentIncomes.map((income) => (
+                  <div key={income.id} className="flex items-center justify-between bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                    <div className="flex items-center space-x-3">
+                      <div className={`w-10 h-10 ${incomeCategoryIcons[income.category]?.color || incomeCategoryIcons['OTHER'].color} rounded-full flex items-center justify-center text-xl`}>
+                        {incomeCategoryIcons[income.category]?.icon || incomeCategoryIcons['OTHER'].icon}
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-800">{income.source}</p>
+                        <p className="text-sm text-gray-500">{formatDate(income.date)}</p>
+                      </div>
+                    </div>
+                    <span className="text-green-600 font-bold">+${income.amount.toLocaleString()}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
           {/* Recent Expenses */}
           <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
             <div className="flex justify-between items-center mb-4">
@@ -136,38 +168,7 @@ export default async function DashboardPage() {
           </div>
 
           {/* Recent Incomes */}
-          <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300">
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center space-x-2">
-                <DollarSign className="w-6 h-6 text-green-500" />
-                <h2 className="text-xl font-semibold text-gray-800">Recent Incomes</h2>
-              </div>
-              <Link href="/incomes" className="text-blue-500 hover:underline flex items-center">
-                View All <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
-            </div>
-
-            {recentIncomes.length === 0 ? (
-              <p className="text-gray-500 text-center">No recent incomes</p>
-            ) : (
-              <div className="space-y-3">
-                {recentIncomes.map((income) => (
-                  <div key={income.id} className="flex items-center justify-between bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-10 h-10 ${incomeCategoryIcons[income.category]?.color || incomeCategoryIcons['OTHER'].color} rounded-full flex items-center justify-center text-xl`}>
-                        {incomeCategoryIcons[income.category]?.icon || incomeCategoryIcons['OTHER'].icon}
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-800">{income.source}</p>
-                        <p className="text-sm text-gray-500">{formatDate(income.date)}</p>
-                      </div>
-                    </div>
-                    <span className="text-green-600 font-bold">+${income.amount.toLocaleString()}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+       
         </div>
       </div>
 
