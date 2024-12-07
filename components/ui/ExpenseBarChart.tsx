@@ -52,43 +52,43 @@ export default function ExpenseBarChart({ expenseCategory }) {
     },
     FOOD: {
       label: "Food",
-      color: "hsl(var(--chart-1))",
+      color: "hsl(var(--expenseschart-1))",
     },
     TRANSPORTATION: {
       label: "Transporation",
-      color: "hsl(var(--chart-2))",
+      color: "hsl(var(--expenseschart-2))",
     },
     UTILITIES: {
       label: "Utilities",
-      color: "hsl(var(--chart-3))",
+      color: "hsl(var(--expenseschart-3))",
     },
     ENTERTAINMENT: {
       label: "Entertainment",
-      color: "hsl(var(--chart-4))",
+      color: "hsl(var(--expenseschart-4))",
     },
     HEALTHCARE: {
       label: "Healthcare",
-      color: "hsl(var(--chart-5))",
+      color: "hsl(var(--expenseschart-5))",
     },
     EDUCATION: {
       label: "Education",
-      color: "hsl(var(--chart-6))",
+      color: "hsl(var(--expenseschart-6))",
     },
     SHOPPING: {
       label: "Shopping",
-      color: "hsl(var(--chart-7))",
+      color: "hsl(var(--expenseschart-7))",
     },
     HOUSING: {
       label: "Housing",
-      color: "hsl(var(--chart-8))",
+      color: "hsl(var(--expenseschart-8))",
     },
     SAVINGS: {
       label: "Savings",
-      color: "hsl(var(--chart-9))",
+      color: "hsl(var(--expenseschart-9))",
     },
     OTHER: {
       label: "Other",
-      color: "hsl(var(--chart-10))",
+      color: "hsl(var(--expenseschart-10))",
     },
   } satisfies ChartConfig;
 

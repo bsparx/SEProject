@@ -50,43 +50,43 @@ export default function IncomeBarChart({incomeCategory}) {
         },
         SALARY: {
           label: "Salary",
-          color: "hsl(var(--chart-1))",
+          color: "hsl(var(--incomechart-1))",
         },
         FREELANCE: {
           label: "Freelance",
-          color: "hsl(var(--chart-2))",
+          color: "hsl(var(--incomechart-2))",
         },
         INVESTMENT: {
           label: "Investment",
-          color: "hsl(var(--chart-3))",
+          color: "hsl(var(--incomechart-3))",
         },
         RENTAL: {
           label: "Rental",
-          color: "hsl(var(--chart-4))",
+          color: "hsl(var(--incomechart-4))",
         },
         SIDE_HUSTLE: {
           label: "Side Hustle",
-          color: "hsl(var(--chart-5))",
+          color: "hsl(var(--incomechart-5))",
         },
         BONUS: {
           label: "Bonus",
-          color: "hsl(var(--chart-6))",
+          color: "hsl(var(--incomechart-6))",
         },
         GIFT: {
           label: "gift",
-          color: "hsl(var(--chart-7))",
+          color: "hsl(var(--incomechart-7))",
         },
         PASSIVE_INCOME: {
           label: "Passive Income ",
-          color: "hsl(var(--chart-8))",
+          color: "hsl(var(--incomechart-8))",
         },
         REFUND: {
           label: "Refund",
-          color: "hsl(var(--chart-9))",
+          color: "hsl(var(--incomechart-9))",
         },
         OTHER: {
           label: "Other",
-          color: "hsl(var(--chart-10))",
+          color: "hsl(var(--incomechart-10))",
         },
       } satisfies ChartConfig;
   return (
