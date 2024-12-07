@@ -28,7 +28,7 @@ export default async function ExpensesPage({ searchParams }) {
 
   const categoryDetails = {
     FOOD: {
-      color: "text-red-500 bg-red-50",
+      color: "text-brown-500 bg-brown-50",
       icon: Utensils,
       label: "Food",
     },
@@ -48,7 +48,7 @@ export default async function ExpensesPage({ searchParams }) {
       label: "Entertainment",
     },
     HEALTHCARE: {
-      color: "text-green-500 bg-green-50",
+      color: "text-red-500 bg-red-50",
       icon: HeartPulse,
       label: "Healthcare",
     },
