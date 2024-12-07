@@ -116,10 +116,11 @@ export default async function ExpensesPage({ searchParams }) {
 
         <div className="mt-6">
           {expenses.length === 0 ? (
-            <div className="text-center py-10 text-gray-400">
-              <TrendingUp className="mx-auto w-10 h-10 mb-3 text-red-400" />
-              <p>No expenses found</p>
-            </div>
+            <div className="text-center py-12 bg-white rounded-xl shadow-sm">
+            <TrendingUp className="mx-auto w-12 h-12 mb-4 text-red-600 opacity-70" />
+            <p className="text-gray-500 text-lg">No Expenses recorded yet</p>
+            <p className="text-gray-400 text-sm mt-2">Start tracking your expenses!</p>
+          </div>
           ) : (
             <div className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-100">
               <div className="grid grid-cols-12 bg-gray-50 border-b px-4 py-3">
