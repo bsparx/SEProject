@@ -37,11 +37,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 icon={<DollarSign className="w-5 h-5" />} 
                 label="Incomes" 
               />
-              <NavItem 
+              {/* <NavItem 
                 href="/reports" 
                 icon={<BarChart className="w-5 h-5" />} 
                 label="Reports" 
-              />
+              /> */}
             </nav>
   
             {/* User Profile */}

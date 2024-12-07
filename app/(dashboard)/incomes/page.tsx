@@ -17,6 +17,8 @@ import {
   BanknoteIcon,       
   Clipboard    
 } from "lucide-react";
+import EditIncomeButton from "@/components/EditIncomeButton";
+import DeleteIncome from "@/components/DeleteIncome";
 
 export default async function IncomesPage({ searchParams }) {
   const params = await searchParams;
@@ -25,65 +27,65 @@ export default async function IncomesPage({ searchParams }) {
 
   const categoryDetails = {
     SALARY: {
-      color: "text-green-500 bg-green-50",
+      color: "text-green-600 bg-green-100",
       icon: Briefcase,
       label: "Salary"
     },
     FREELANCE: {
-      color: "text-blue-500 bg-blue-50",
+      color: "text-blue-600 bg-blue-100",
       icon: Computer,
       label: "Freelance"
     },
     INVESTMENT: {
-      color: "text-yellow-500 bg-yellow-50",
+      color: "text-yellow-600 bg-yellow-100",
       icon: TrendingDown,
       label: "Investment"
     },
     RENTAL: {
-      color: "text-purple-500 bg-purple-50",
+      color: "text-purple-600 bg-purple-100",
       icon: Home,
       label: "Rental"
     },
     SIDE_HUSTLE: {
-      color: "text-indigo-500 bg-indigo-50",
+      color: "text-indigo-600 bg-indigo-100",
       icon: Star,
       label: "Side Hustle"
     },
     BONUS: {
-      color: "text-pink-500 bg-pink-50",
+      color: "text-pink-600 bg-pink-100",
       icon: Gift,
       label: "Bonus"
     },
     GIFT: {
-      color: "text-red-500 bg-red-50",
+      color: "text-red-600 bg-red-100",
       icon: Gift,
       label: "Gift"
     },
     PASSIVE_INCOME: {
-      color: "text-emerald-500 bg-emerald-50",
+      color: "text-emerald-600 bg-emerald-100",
       icon: BanknoteIcon,
       label: "Passive Income"
     },
     REFUND: {
-      color: "text-orange-500 bg-orange-50",
+      color: "text-orange-600 bg-orange-100",
       icon: Building,
       label: "Refund"
     },
     OTHER: {
-      color: "text-gray-500 bg-gray-50",
+      color: "text-gray-600 bg-gray-100",
       icon: Clipboard,
       label: "Other"
     }
   };
 
   return (
-    <div className="min-h-screen bg-white p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white p-4 md:p-8">
       <div className="max-w-5xl mx-auto">
-        <div className="flex justify-between items-center mb-8 border-b pb-4 border-gray-100">
-          <div className="flex items-center space-x-3">
-            <TrendingUp className="w-5 h-5 text-green-500" />
-            <h1 className="text-xl font-semibold text-gray-800">
-              Your Incomes
+        <div className="flex justify-between items-center mb-8 border-b pb-4 border-gray-200 shadow-sm">
+          <div className="flex items-center space-x-4">
+            <TrendingUp className="w-6 h-6 text-green-600" />
+            <h1 className="text-2xl font-bold text-gray-800">
+              Income Dashboard
             </h1>
           </div>
           <Link 
@@ -92,27 +94,34 @@ export default async function IncomesPage({ searchParams }) {
               flex 
               items-center 
               space-x-2 
-              text-green-600 
-              hover:text-green-700 
+              bg-green-600 
+              text-white 
+              px-4 
+              py-2 
+              rounded-lg 
+              hover:bg-green-700 
               transition-colors 
-              duration-200
+              duration-300
+              shadow-md
+              group
             "
           >
-            <PlusCircle className="w-4 h-4" />
-            <span className="text-sm">Add Income</span>
+            <PlusCircle className="w-5 h-5 group-hover:rotate-180 transition-transform" />
+            <span className="text-sm font-medium">Add Income</span>
           </Link>
         </div>
 
-        <Search placeholder="Search incomes..." />
+        <Search placeholder="Search incomes by description..." />
 
         <div className="mt-6">
           {incomes.length === 0 ? (
-            <div className="text-center py-10 text-gray-400">
-              <TrendingUp className="mx-auto w-10 h-10 mb-3 text-green-400" />
-              <p>No incomes found</p>
+            <div className="text-center py-12 bg-white rounded-xl shadow-sm">
+              <TrendingUp className="mx-auto w-12 h-12 mb-4 text-green-400 opacity-70" />
+              <p className="text-gray-500 text-lg">No incomes recorded yet</p>
+              <p className="text-gray-400 text-sm mt-2">Start tracking your earnings!</p>
             </div>
           ) : (
-            <div className="bg-white shadow-sm rounded-lg overflow-hidden">
+            <div className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-100">
               <div className="grid grid-cols-12 bg-gray-50 border-b px-4 py-3">
                 <div className="col-span-3 text-xs uppercase tracking-wider text-gray-500 font-semibold">
                   Date
@@ -140,20 +149,21 @@ export default async function IncomesPage({ searchParams }) {
                       grid-cols-12 
                       items-center 
                       px-4 
-                      py-3 
+                      py-4 
                       border-b 
                       last:border-b-0 
                       hover:bg-gray-50 
                       transition-colors 
                       duration-200
+                      group
                     "
                   >
-                    <div className="col-span-3 text-gray-600 flex items-center space-x-2">
-                      <Calendar className="w-4 h-4 text-gray-400" />
+                    <div className="col-span-3 text-gray-600 flex items-center space-x-3">
+                      <Calendar className="w-5 h-5 text-gray-400 group-hover:text-green-500 transition" />
                       <span>{income.date.toLocaleDateString()}</span>
                     </div>
                     <div className="col-span-4 flex items-center space-x-3">
-                      <CategoryIcon className={`w-5 h-5 ${color} opacity-70`} />
+                      <CategoryIcon className={`w-6 h-6 ${color} opacity-80`} />
                       <div>
                         <p className="text-gray-800 font-medium">{income.source}</p>
                       </div>
@@ -163,7 +173,7 @@ export default async function IncomesPage({ searchParams }) {
                         ${income.amount}
                       </p>
                     </div>
-                    <div className="col-span-3 text-right">
+                    <div className="col-span-3 text-right flex items-center justify-end space-x-2">
                       <span className={`
                         inline-block 
                         px-2 
@@ -176,6 +186,8 @@ export default async function IncomesPage({ searchParams }) {
                       `}>
                         {label}
                       </span>
+                      <EditIncomeButton income={income}/>
+                      <DeleteIncome income={income}/>
                     </div>
                   </div>
                 );
@@ -186,4 +198,4 @@ export default async function IncomesPage({ searchParams }) {
       </div>
     </div>
   );
-}
+};

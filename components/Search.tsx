@@ -4,7 +4,7 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { Search as SearchIcon } from "lucide-react";
 
-export default function Search() {
+export default function Search({placeholder}) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -26,7 +26,7 @@ export default function Search() {
       </div>
       <input
         type="text"
-        placeholder="Search your expenses by description..."
+        placeholder={placeholder}
         className="
           w-full 
           pl-12 

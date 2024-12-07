@@ -1,22 +1,25 @@
 import Search from "@/components/Search";
 import Link from "next/link";
 import { getAllExpenses } from "@/utils/getter";
-import { 
-  Wallet, 
-  TrendingUp, 
-  Calendar, 
+import {
+  Wallet,
+  TrendingUp,
+  Calendar,
   PlusCircle,
-  Utensils,     
-  Car,         
-  Zap,          
-  Film,        
-  HeartPulse,   
+  Utensils,
+  Car,
+  Zap,
+  Film,
+  HeartPulse,
   GraduationCap,
-  ShoppingBag, 
-  Home,        
-  PiggyBank,       
-  Clipboard    
+  ShoppingBag,
+  Home,
+  PiggyBank,
+  Clipboard,
 } from "lucide-react";
+import Modal from "@/components/EditExpenseButton";
+import EditExpenseButton from "@/components/EditExpenseButton";
+import DeleteExpense from "@/components/DeleteExpense";
 
 export default async function ExpensesPage({ searchParams }) {
   const params = await searchParams;
@@ -27,53 +30,53 @@ export default async function ExpensesPage({ searchParams }) {
     FOOD: {
       color: "text-red-500 bg-red-50",
       icon: Utensils,
-      label: "Food"
+      label: "Food",
     },
     TRANSPORTATION: {
       color: "text-blue-500 bg-blue-50",
       icon: Car,
-      label: "Transportation"
+      label: "Transportation",
     },
     UTILITIES: {
       color: "text-yellow-500 bg-yellow-50",
       icon: Zap,
-      label: "Utilities"
+      label: "Utilities",
     },
     ENTERTAINMENT: {
       color: "text-purple-500 bg-purple-50",
       icon: Film,
-      label: "Entertainment"
+      label: "Entertainment",
     },
     HEALTHCARE: {
       color: "text-green-500 bg-green-50",
       icon: HeartPulse,
-      label: "Healthcare"
+      label: "Healthcare",
     },
     EDUCATION: {
       color: "text-indigo-500 bg-indigo-50",
       icon: GraduationCap,
-      label: "Education"
+      label: "Education",
     },
     SHOPPING: {
       color: "text-pink-500 bg-pink-50",
       icon: ShoppingBag,
-      label: "Shopping"
+      label: "Shopping",
     },
     HOUSING: {
       color: "text-orange-500 bg-orange-50",
       icon: Home,
-      label: "Housing"
+      label: "Housing",
     },
     SAVINGS: {
       color: "text-emerald-500 bg-emerald-50",
       icon: PiggyBank,
-      label: "Savings"
+      label: "Savings",
     },
     OTHER: {
       color: "text-gray-500 bg-gray-50",
       icon: Clipboard,
-      label: "Other"
-    }
+      label: "Other",
+    },
   };
 
   return (
@@ -82,28 +85,34 @@ export default async function ExpensesPage({ searchParams }) {
         <div className="flex justify-between items-center mb-8 border-b pb-4 border-gray-100">
           <div className="flex items-center space-x-3">
             <Wallet className="w-5 h-5 text-red-500" />
-            <h1 className="text-xl font-semibold text-gray-800">
+            <h1 className="text-2xl font-bold text-gray-800">
               Your Expenses
             </h1>
           </div>
-          <Link 
-            href="/addExpense" 
+          <Link
+            href="/addExpense"
             className="
               flex 
               items-center 
               space-x-2 
-              text-red-600 
-              hover:text-red-700 
+              bg-red-600 
+              text-white 
+              px-4 
+              py-2 
+              rounded-lg 
+              hover:bg-red-700 
               transition-colors 
-              duration-200
+              duration-300
+              shadow-md
+              group
             "
           >
-            <PlusCircle className="w-4 h-4" />
-            <span className="text-sm">Add Expense</span>
+            <PlusCircle className="w-5 h-5 group-hover:rotate-180 transition-transform" />
+            <span className="text-sm font-medium">Add Expense</span>
           </Link>
         </div>
 
-        <Search />
+        <Search placeholder={"Search Expenses by description..."}/>
 
         <div className="mt-6">
           {expenses.length === 0 ? (
@@ -112,7 +121,7 @@ export default async function ExpensesPage({ searchParams }) {
               <p>No expenses found</p>
             </div>
           ) : (
-            <div className="bg-white shadow-sm rounded-lg overflow-hidden">
+            <div className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-100">
               <div className="grid grid-cols-12 bg-gray-50 border-b px-4 py-3">
                 <div className="col-span-3 text-xs uppercase tracking-wider text-gray-500 font-semibold">
                   Date
@@ -129,8 +138,11 @@ export default async function ExpensesPage({ searchParams }) {
               </div>
 
               {expenses.map((e) => {
-                const { color, icon: CategoryIcon, label } = 
-                  categoryDetails[e.category] || categoryDetails["OTHER"];
+                const {
+                  color,
+                  icon: CategoryIcon,
+                  label,
+                } = categoryDetails[e.category] || categoryDetails["OTHER"];
 
                 return (
                   <div
@@ -155,16 +167,17 @@ export default async function ExpensesPage({ searchParams }) {
                     <div className="col-span-4 flex items-center space-x-3">
                       <CategoryIcon className={`w-5 h-5 ${color} opacity-70`} />
                       <div>
-                        <p className="text-gray-800 font-medium">{e.description}</p>
+                        <p className="text-gray-800 font-medium">
+                          {e.description}
+                        </p>
                       </div>
                     </div>
                     <div className="col-span-2 text-right">
-                      <p className="font-semibold text-gray-800">
-                        ${e.amount}
-                      </p>
+                      <p className="font-semibold text-gray-800">${e.amount}</p>
                     </div>
                     <div className="col-span-3 text-right">
-                      <span className={`
+                      <span
+                        className={`
                         inline-block 
                         px-2 
                         py-1 
@@ -173,9 +186,12 @@ export default async function ExpensesPage({ searchParams }) {
                         ${color}
                         bg-opacity-20 
                         text-opacity-90
-                      `}>
+                      `}
+                      >
                         {label}
                       </span>
+                      <EditExpenseButton expense={e} />
+                      <DeleteExpense expense={e} />
                     </div>
                   </div>
                 );

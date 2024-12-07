@@ -3,14 +3,15 @@ import Link from "next/link";
 import {
   Wallet,
   PlusCircle,
-  List,
   TrendingUp,
   TrendingDown,
-  Coins,
   ArrowRight,
   Receipt,
   DollarSign
 } from "lucide-react";
+import IncomeBarChart from "@/components/ui/IncomeBarChart";
+import ExpenseBarChart from "@/components/ui/ExpenseBarChart";
+import { getExpensesByCategory, getIncomeByCategory } from "@/utils/crud";
 
 // Helper function to format date
 const formatDate = (date) => {
@@ -54,7 +55,8 @@ export default async function DashboardPage() {
   const totalIncome = await getTotalIncome() ?? 0;
   const currentBalance = totalIncome - totalExpense;
 
- 
+ const expenseCategory=await getExpensesByCategory()
+ const incomeCategory=await getIncomeByCategory()
   const recentExpenses = (await getRecentExpenses()) ?? [];
   const recentIncomes = (await getRecentIncomes()) ?? [];
 
@@ -98,10 +100,14 @@ export default async function DashboardPage() {
             </div>
           </div>
         </div>
+        <div className="grid grid-cols-2 gap-6 my-5">
+          <div className="col-span-1 ring-4 ring-green-600 rounded-lg">        <IncomeBarChart incomeCategory={incomeCategory}/></div>
+          <div className="col-span-1 ring-4 ring-red-600 rounded-lg">        <ExpenseBarChart expenseCategory={expenseCategory}/></div>
+        </div>
 
         {/* Recent Activities Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 border-2 border-green-600">
+        <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 ring ring-green-600">
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center space-x-2">
                 <DollarSign className="w-6 h-6 text-green-500" />
@@ -134,7 +140,7 @@ export default async function DashboardPage() {
             )}
           </div>
           {/* Recent Expenses */}
-          <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 border-2 border-red-600">
+          <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300 ring ring-red-600">
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center space-x-2">
                 <Receipt className="w-6 h-6 text-red-500" />
@@ -172,7 +178,6 @@ export default async function DashboardPage() {
         </div>
       </div>
 
-      {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-6 flex flex-col space-y-4">
         <Link href="/addIncome">
           <button className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors flex items-center justify-center">
