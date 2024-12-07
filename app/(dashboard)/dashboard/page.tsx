@@ -101,8 +101,8 @@ export default async function DashboardPage() {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-6 my-5">
-          <div className="col-span-1 ring-4 ring-green-600 rounded-lg">        <IncomeBarChart incomeCategory={incomeCategory}/></div>
-          <div className="col-span-1 ring-4 ring-red-600 rounded-lg">        <ExpenseBarChart expenseCategory={expenseCategory}/></div>
+          <div className="col-span-1 ring-4 ring-green-600 rounded-lg transition-transforn hover:scale-125 duration-500">        <IncomeBarChart incomeCategory={incomeCategory}/></div>
+          <div className="col-span-1 ring-4 ring-red-600 rounded-lg transition-transforn hover:scale-125 duration-500">        <ExpenseBarChart expenseCategory={expenseCategory}/></div>
         </div>
 
         {/* Recent Activities Section */}
