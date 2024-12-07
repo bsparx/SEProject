@@ -17,7 +17,7 @@ import {
   PiggyBank,
   Clipboard,
 } from "lucide-react";
-import Modal from "@/components/EditExpenseButton";
+
 import EditExpenseButton from "@/components/EditExpenseButton";
 import DeleteExpense from "@/components/DeleteExpense";
 
