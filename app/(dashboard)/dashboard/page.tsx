@@ -180,14 +180,14 @@ export default async function DashboardPage() {
 
       <div className="fixed bottom-6 right-6 flex flex-col space-y-4">
         <Link href="/addIncome">
-          <button className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors flex items-center justify-center">
+          <button className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors md:flex items-center justify-center hidden">
             <TrendingUp className="w-6 h-6 mr-3" />
             <h1>Add Incomes</h1>
           </button>
         </Link>
   
         <Link href="/addExpense">
-          <button className="bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-colors flex items-center justify-center">
+          <button className="bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-colors md:flex items-center justify-center hidden">
             <PlusCircle className="w-6 h-6 mr-3" />
             <h1>Add Expense</h1>
           </button>
