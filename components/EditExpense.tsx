@@ -53,6 +53,7 @@ const Category = {
 };
 
 export default function EditExpense({ expense }) {
+
   const [state, formAction, isPending] = useActionState(updateExpense, {
     id: expense.id,
   });
@@ -166,7 +167,10 @@ export default function EditExpense({ expense }) {
 
         {/* Optional Success/Error State Handling */}
         {state?.data && (
-          <div className="fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+          <div
+            className="fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded"
+            role="alert"
+          >
             <span className="block sm:inline">Expense added successfully!</span>
           </div>
         )}
