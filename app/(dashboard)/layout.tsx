@@ -27,15 +27,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 icon={<Home className="w-5 h-5" />} 
                 label="Dashboard" 
               />
-              <NavItem 
-                href="/expenses" 
-                icon={<Receipt className="w-5 h-5" />} 
-                label="Expenses" 
-              />
+
               <NavItem 
                 href="/incomes" 
                 icon={<DollarSign className="w-5 h-5" />} 
                 label="Incomes" 
+              />
+                            <NavItem 
+                href="/expenses" 
+                icon={<Receipt className="w-5 h-5" />} 
+                label="Expenses" 
               />
               {/* <NavItem 
                 href="/reports" 
