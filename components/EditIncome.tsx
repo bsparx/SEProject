@@ -60,6 +60,7 @@ export default function EditIncome({income}) {
                 name="Amount"
                 id="amount"
                 step="1"
+                min={1}
                 defaultValue={income.amount}
                 className="pl-10 block w-full p-3 border-2 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 text-gray-900"
                 placeholder="Enter income amount"

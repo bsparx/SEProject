@@ -130,7 +130,7 @@ export default async function DashboardPage() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-6 my-5">
+        <div className="grid md:grid-cols-2 col-span-1 gap-6 my-5">
           <div
             className={`col-span-1 ring-4 ring-green-600 rounded-lg ${
               incomeCategory.length > 0 &&

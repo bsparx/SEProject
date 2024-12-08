@@ -2,14 +2,12 @@ import Search from "@/components/Search";
 import Link from "next/link";
 import { getAllIncomes } from "@/utils/getter";
 import { 
-  Wallet, 
   TrendingUp, 
   Calendar, 
   PlusCircle,
   Briefcase,     
   Computer,         
-  TrendingDown,          
-  Film,        
+  TrendingDown,              
   Building,   
   Star,
   Gift, 
