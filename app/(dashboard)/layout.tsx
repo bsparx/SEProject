@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center space-x-3">
             <Coins className="w-8 h-8 text-blue-600" />
             <h1 className="text-2xl font-bold text-gray-800">Penny Pilot</h1>
-            <button
+            {/* <button
               className={`
            w-14 h-7 
            flex items-center 
@@ -54,7 +54,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Sun className="w-full h-full p-1 text-yellow-500" />
                 )}
               </div>
-            </button>
+            </button> */}
           </div>
 
           {/* Navigation Menu */}

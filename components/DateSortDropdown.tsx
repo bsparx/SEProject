@@ -9,7 +9,9 @@ export default function DateSortDropdown() {
   const sortOptions = [
     { value: 'default', label: 'Default Sorting' },
     { value: 'date-asc', label: 'Date: Oldest First' },
-    { value: 'date-desc', label: 'Date: Newest First' }
+    { value: 'date-desc', label: 'Date: Newest First' },
+    { value: 'cat-asc', label: 'Category:Ascending' },
+    { value: 'cat-desc', label: 'Category:Descending' }
   ];
 
   return (
