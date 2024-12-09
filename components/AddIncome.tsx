@@ -30,25 +30,25 @@ export default function AddIncome() {
   });
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="w-full max-w-md bg-white rounded-xl shadow-md overflow-hidden">
-        <div className="h-1 w-full bg-gradient-to-r from-blue-500 to-green-500"></div>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transform transition-all hover:scale-[1.02]">
+        <div className="h-1.5 w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
         
-        <div className="p-6 space-y-6">
-          <div className="text-center mb-4">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">
+        <div className="p-8 space-y-7">
+          <div className="text-center mb-6">
+            <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-3">
               Add Income
             </h1>
-            <p className="text-sm text-gray-600">
-              Track your financial progress
+            <p className="text-sm text-gray-500 tracking-wide">
+              Empower your financial journey
             </p>
           </div>
 
-          <form className="space-y-5" action={formAction}>
+          <form className="space-y-6" action={formAction}>
             <div>
               <label 
                 htmlFor="amount" 
-                className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+                className="block text-sm font-semibold text-gray-700 mb-2 flex items-center"
               >
                 <DollarSign className="mr-2 text-blue-500" size={18} />
                 Amount
@@ -60,7 +60,7 @@ export default function AddIncome() {
                 id="amount"
                 min={1}
                 step="1"
-                className="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-gray-900"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all text-gray-900 hover:border-blue-300"
                 placeholder="Enter income amount"
               />
             </div>
@@ -68,7 +68,7 @@ export default function AddIncome() {
             <div>
               <label 
                 htmlFor="source" 
-                className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+                className="block text-sm font-semibold text-gray-700 mb-2 flex items-center"
               >
                 <ArrowDownUp className="mr-2 text-green-500" size={18} />
                 Source
@@ -78,7 +78,7 @@ export default function AddIncome() {
                 type="text"
                 id="source"
                 name="Source"
-                className="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all text-gray-900"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all text-gray-900 hover:border-green-300"
                 placeholder="Income source"
               />
             </div>
@@ -86,7 +86,7 @@ export default function AddIncome() {
             <div>
               <label 
                 htmlFor="date" 
-                className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+                className="block text-sm font-semibold text-gray-700 mb-2 flex items-center"
               >
                 <Calendar className="mr-2 text-teal-500" size={18} />
                 Date
@@ -96,14 +96,14 @@ export default function AddIncome() {
                 type="date"
                 id="date"
                 name="Date"
-                className="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all text-gray-900"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition-all text-gray-900 hover:border-teal-300"
               />
             </div>
 
             <div>
               <label 
                 htmlFor="category" 
-                className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+                className="block text-sm font-semibold text-gray-700 mb-2 flex items-center"
               >
                 <Tags className="mr-2 text-indigo-500" size={18} />
                 Category
@@ -112,7 +112,7 @@ export default function AddIncome() {
                 required
                 id="category"
                 name="category"
-                className="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all text-gray-700"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700 hover:border-indigo-300"
               >
                 {Object.keys(IncomeCategory).map((cat) => (
                   <option 
@@ -126,11 +126,11 @@ export default function AddIncome() {
               </select>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-4">
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full p-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-all flex items-center justify-center disabled:opacity-50"
+                className="w-full p-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center disabled:opacity-50"
               >
                 {isPending ? (
                   <>
@@ -150,7 +150,7 @@ export default function AddIncome() {
       </div>
 
       {state?.data && (
-        <div className="fixed top-4 right-4 bg-green-50 border border-green-300 text-green-700 px-4 py-3 rounded-lg shadow-md">
+        <div className="fixed top-4 right-4 bg-green-50 border border-green-300 text-green-700 px-4 py-3 rounded-xl shadow-lg animate-pulse">
           <span className="block sm:inline">Income added successfully!</span>
         </div>
       )}
