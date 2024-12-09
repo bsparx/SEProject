@@ -17,6 +17,13 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function ExpenseBarChart({ expenseCategory }) {
   if (!expenseCategory || expenseCategory.length === 0) {
@@ -93,9 +100,19 @@ export default function ExpenseBarChart({ expenseCategory }) {
   } satisfies ChartConfig;
 
   return (
-    <Card className="flex flex-col ">
-      <CardHeader className="items-center pb-0">
+    <Card className="flex flex-col">
+      <CardHeader className="items-center pb-0 flex flex-row justify-between">
         <CardTitle>Expense Distribution</CardTitle>
+        <Select>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select Graph" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="pie">Pie Chart</SelectItem>
+            <SelectItem value="bar">Bar Chart</SelectItem>
+            <SelectItem value="line">Line Chart</SelectItem>
+          </SelectContent>
+        </Select>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer

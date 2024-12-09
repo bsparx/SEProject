@@ -1,4 +1,5 @@
 import Search from "@/components/Search";
+import DateSortDropdown from "@/components/DateSortDropdown";
 import Link from "next/link";
 import { getAllIncomes } from "@/utils/getter";
 import { 
@@ -109,7 +110,14 @@ export default async function IncomesPage({ searchParams }) {
           </Link>
         </div>
 
-        <Search placeholder="Search incomes by description..." />
+        <div className="flex space-x-4 mb-6">
+          <div className="flex-grow">
+            <Search placeholder="Search incomes by description..." />
+          </div>
+          <div>
+            <DateSortDropdown />
+          </div>
+        </div>
 
         <div className="mt-6">
           {incomes.length === 0 ? (

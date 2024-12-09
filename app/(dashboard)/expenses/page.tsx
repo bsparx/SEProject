@@ -20,6 +20,7 @@ import {
 
 import EditExpenseButton from "@/components/EditExpenseButton";
 import DeleteExpense from "@/components/DeleteExpense";
+import DateSortDropdown from "@/components/DateSortDropdown";
 
 export default async function ExpensesPage({ searchParams }) {
   const params = await searchParams;
@@ -112,7 +113,14 @@ export default async function ExpensesPage({ searchParams }) {
           </Link>
         </div>
 
-        <Search placeholder={"Search Expenses by description..."}/>
+        <div className="flex space-x-4 mb-6">
+          <div className="flex-grow">
+            <Search placeholder="Search incomes by description..." />
+          </div>
+          <div>
+            <DateSortDropdown />
+          </div>
+        </div>
 
         <div className="mt-6">
           {expenses.length === 0 ? (

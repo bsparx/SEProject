@@ -4,7 +4,8 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { Search as SearchIcon } from "lucide-react";
 
-export default function Search({placeholder}) {
+
+export default function Search({ placeholder }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -51,6 +52,7 @@ export default function Search({placeholder}) {
           handleSearch(e.target.value);
         }}
       />
+
     </div>
   );
 }

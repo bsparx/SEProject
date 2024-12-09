@@ -131,21 +131,11 @@ export default async function DashboardPage() {
           </div>
         </div>
         <div className="grid md:grid-cols-2 col-span-1 gap-6 my-5">
-          <div
-            className={`col-span-1 ring-4 ring-green-600 rounded-lg ${
-              incomeCategory.length > 0 &&
-              "transition-transforn hover:scale-125 duration-500"
-            }`}
-          >
+          <div className={`col-span-1 ring-4 ring-green-600 rounded-lg `}>
             {" "}
             <IncomeBarChart incomeCategory={incomeCategory} />
           </div>
-          <div
-            className={`col-span-1 ring-4 ring-red-600 rounded-lg ${
-              expenseCategory.length > 0 &&
-              "transition-transforn hover:scale-125 duration-500"
-            } `}
-          >
+          <div className={`col-span-1 ring-4 ring-red-600 rounded-lg  `}>
             {" "}
             <ExpenseBarChart expenseCategory={expenseCategory} />
           </div>

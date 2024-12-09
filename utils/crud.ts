@@ -13,6 +13,7 @@ export async function createExpense(previousInput, formdata: FormData) {
       amount: Number(formdata.get("Amount")),
       description: formdata.get("Description"),
       category: formdata.get("category"),
+      date: new Date(formdata.get("Date")).toISOString(),
     },
   });
 
@@ -21,12 +22,14 @@ export async function createExpense(previousInput, formdata: FormData) {
 
 export async function createIncome(previousInput, formdata: FormData) {
   const user = await getUser();
+
   const income = await prisma.income.create({
     data: {
       userId: user?.id,
       amount: Number(formdata.get("Amount")),
       source: formdata.get("Source"),
       category: formdata.get("category"),
+      date: new Date(formdata.get("Date")).toISOString(),
     },
   });
 
@@ -44,6 +47,7 @@ export async function updateExpense(previousInput, formdata: FormData) {
       amount: Number(formdata.get("Amount")),
       description: formdata.get("Description"),
       category: formdata.get("category"),
+      date: new Date(formdata.get("Date")).toISOString(),
     },
   });
   revalidatePath("/expenses");
@@ -79,6 +83,7 @@ export async function updateIncome(previousInput, formdata: FormData) {
       amount: Number(formdata.get("Amount")),
       source: formdata.get("Source"),
       category: formdata.get("category"),
+      date: new Date(formdata.get("Date")).toISOString(),
     },
   });
 

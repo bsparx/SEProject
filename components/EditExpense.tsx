@@ -8,6 +8,7 @@ import {
   Tags,
   Loader2,
   CheckCircle2,
+  Calendar,
 } from "lucide-react";
 
 // Enhanced Category enum with icons and colors
@@ -57,7 +58,8 @@ export default function EditExpense({ expense }) {
   const [state, formAction, isPending] = useActionState(updateExpense, {
     id: expense.id,
   });
-
+  const dateObject = new Date(expense.date.toString()); // Convert to Date object
+  const formattedDate = dateObject.toISOString().split('T')[0]; // Extract 'YYYY-MM-DD'
   return (
     <div className="flex items-center justify-center w-full h-full bg-white">
       <div className="w-full max-w-md px-6 py-8 space-y-6">
@@ -119,7 +121,23 @@ export default function EditExpense({ expense }) {
               placeholder="What was this expense for?"
             />
           </div>
-
+          <div>
+              <label 
+                htmlFor="date" 
+                className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+              >
+                <Calendar className="mr-2 text-pink-500" size={18} />
+                Date
+              </label>
+              <input
+                required
+                type="date"
+                defaultValue={formattedDate}
+                id="date"
+                name="Date"
+                className="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all text-gray-900"
+              />
+            </div>
           {/* Category Select */}
           <div>
             <label
