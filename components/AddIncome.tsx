@@ -57,7 +57,7 @@ export default function AddIncome() {
                 required
                 id="category"
                 name="category"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700 hover:border-indigo-300"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 outline-none focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700 hover:border-indigo-300"
               >
                 {Object.keys(IncomeCategory).map((cat) => (
                   <option 
@@ -85,9 +85,10 @@ export default function AddIncome() {
                 id="amount"
                 min={1}
                 step="1"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all text-gray-900 hover:border-blue-300"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 outline-none focus:ring-blue-400 focus:border-blue-400 transition-all text-gray-900 hover:border-blue-300"
                 placeholder="Enter income amount"
               />
+         
             </div>
 
             <div>
@@ -103,7 +104,7 @@ export default function AddIncome() {
                 type="text"
                 id="source"
                 name="Source"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 focus:border-green-400 transition-all text-gray-900 hover:border-green-300"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 outline-none focus:ring-green-400 focus:border-green-400 transition-all text-gray-900 hover:border-green-300"
                 placeholder="Income source"
               />
             </div>
@@ -121,7 +122,7 @@ export default function AddIncome() {
                 type="date"
                 id="date"
                 name="Date"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition-all text-gray-900 hover:border-teal-300"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 outline-none focus:ring-teal-400 focus:border-teal-400 transition-all text-gray-900 hover:border-teal-300"
               />
             </div>
 

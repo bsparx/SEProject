@@ -88,7 +88,7 @@ export default function EditExpense({ expense }) {
               id="category"
               name="category"
               defaultValue={expense.category}
-              className="block w-full p-3 border-2 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 text-gray-700"
+              className="block w-full p-3 border-2 border-gray-300 rounded-xl shadow-sm outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 text-gray-700"
             >
               {Object.keys(Category).map((cat) => (
                 <option key={cat} value={cat} className="flex items-center">
@@ -114,7 +114,7 @@ export default function EditExpense({ expense }) {
                 id="amount"
                 step="1"
                 min={1}
-                className="pl-10 block w-full p-3 border-2 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 text-gray-900"
+                className="pl-10 block w-full p-3 border-2 border-gray-300 rounded-xl outline-none shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 text-gray-900"
                 placeholder="Enter amount"
                 defaultValue={expense.amount}
               />
@@ -139,7 +139,7 @@ export default function EditExpense({ expense }) {
               id="description"
               name="Description"
               defaultValue={expense.description}
-              className="block w-full p-3 border-2 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-gray-900"
+              className="block w-full p-3 border-2 border-gray-300 rounded-xl outline-none shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 text-gray-900"
               placeholder="What was this expense for?"
             />
           </div>
@@ -157,7 +157,7 @@ export default function EditExpense({ expense }) {
                 defaultValue={formattedDate}
                 id="date"
                 name="Date"
-                className="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all text-gray-900"
+                className="block w-full p-3 border border-gray-300 rounded-lg outline-none shadow-sm focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all text-gray-900"
               />
             </div>
    

@@ -57,7 +57,7 @@ export default function AddExpense() {
                 required
                 id="category"
                 name="category"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all text-gray-700 hover:border-purple-300"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 outline-none focus:ring-purple-400 focus:border-purple-400 transition-all text-gray-700 hover:border-purple-300"
               >
                 {Object.keys(Category).map((cat) => (
                   <option 
@@ -85,7 +85,7 @@ export default function AddExpense() {
                 id="amount"
                 min={1}
                 step="1"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-red-400 focus:border-red-400 transition-all text-gray-900 hover:border-red-300"
+                className="block w-full p-3.5 border-2 outline-none border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-red-400 focus:border-red-400 transition-all text-gray-900 hover:border-red-300"
                 placeholder="Enter amount"
               />
             </div>
@@ -103,7 +103,7 @@ export default function AddExpense() {
                 type="text"
                 id="description"
                 name="Description"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all text-gray-900 hover:border-purple-300"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl outline-none shadow-sm focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all text-gray-900 hover:border-purple-300"
                 placeholder="What was this expense for?"
               />
             </div>
@@ -121,7 +121,7 @@ export default function AddExpense() {
                 type="date"
                 id="date"
                 name="Date"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-pink-400 focus:border-pink-400 transition-all text-gray-900 hover:border-pink-300"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl outline-none shadow-sm focus:ring-2 focus:ring-pink-400 focus:border-pink-400 transition-all text-gray-900 hover:border-pink-300"
               />
             </div>
 
