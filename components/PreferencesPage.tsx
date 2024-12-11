@@ -19,7 +19,7 @@ export default function PreferencesPage() {
     <div className="max-w-4xl mx-auto px-6 py-8">
       <h1 className="text-3xl font-bold text-gray-800 mb-8">Preferences</h1>
       
-      {/* Language Selection */}
+
       <div className="bg-white shadow-md rounded-lg p-6 mb-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -45,7 +45,7 @@ export default function PreferencesPage() {
         </div>
       </div>
       
-      {/* Currency Selection */}
+
       <div className="bg-white shadow-md rounded-lg p-6 mb-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -70,8 +70,7 @@ export default function PreferencesPage() {
           </div>
         </div>
       </div>
-      
-      {/* Dark Mode Toggle */}
+
       <div className="bg-white shadow-md rounded-lg p-6 mb-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -111,7 +110,7 @@ export default function PreferencesPage() {
         </div>
       </div>
       
-      {/* Help Section */}
+
       <div className="bg-white shadow-md rounded-lg p-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
