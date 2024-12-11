@@ -13,6 +13,7 @@ import {
   ArrowRight,
   Receipt,
   DollarSign,
+  Share,
 } from "lucide-react";
 import IncomeBarChart from "@/components/ui/IncomeBarChart";
 import ExpenseBarChart from "@/components/ui/ExpenseBarChart";
@@ -252,17 +253,23 @@ export default async function DashboardPage() {
       </div>
 
       <div className="fixed bottom-6 right-6 flex flex-col space-y-4">
+      <Link href="#">
+          <button className="bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-colors md:flex items-center justify-center hidden w-44">
+            <Share className="w-6 h-6 mr-3" />
+            <h1>Share Budget</h1>
+          </button>
+        </Link>
         <Link href="/addIncome">
-          <button className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors md:flex items-center justify-center hidden">
+          <button className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors md:flex items-center justify-center hidden w-44">
             <TrendingUp className="w-6 h-6 mr-3" />
             <h1>Add Incomes</h1>
           </button>
         </Link>
 
         <Link href="/addExpense">
-          <button className="bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-colors md:flex items-center justify-center hidden">
+          <button className="bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-colors md:flex items-center justify-center hidden w-44">
             <PlusCircle className="w-6 h-6 mr-3" />
-            <h1>Add Expense</h1>
+            <h1>Add Expenses</h1>
           </button>
         </Link>
       </div>

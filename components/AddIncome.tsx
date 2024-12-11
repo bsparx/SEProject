@@ -45,6 +45,31 @@ export default function AddIncome() {
           </div>
 
           <form className="space-y-6" action={formAction}>
+          <div>
+              <label 
+                htmlFor="category" 
+                className="block text-sm font-semibold text-gray-700 mb-2 flex items-center"
+              >
+                <Tags className="mr-2 text-indigo-500" size={18} />
+                Category
+              </label>
+              <select
+                required
+                id="category"
+                name="category"
+                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700 hover:border-indigo-300"
+              >
+                {Object.keys(IncomeCategory).map((cat) => (
+                  <option 
+                    key={cat} 
+                    value={cat}
+                    className="flex items-center"
+                  >
+                    {IncomeCategory[cat].icon} {IncomeCategory[cat].label}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div>
               <label 
                 htmlFor="amount" 
@@ -100,31 +125,7 @@ export default function AddIncome() {
               />
             </div>
 
-            <div>
-              <label 
-                htmlFor="category" 
-                className="block text-sm font-semibold text-gray-700 mb-2 flex items-center"
-              >
-                <Tags className="mr-2 text-indigo-500" size={18} />
-                Category
-              </label>
-              <select
-                required
-                id="category"
-                name="category"
-                className="block w-full p-3.5 border-2 border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700 hover:border-indigo-300"
-              >
-                {Object.keys(IncomeCategory).map((cat) => (
-                  <option 
-                    key={cat} 
-                    value={cat}
-                    className="flex items-center"
-                  >
-                    {IncomeCategory[cat].icon} {IncomeCategory[cat].label}
-                  </option>
-                ))}
-              </select>
-            </div>
+
 
             <div className="pt-4">
               <button

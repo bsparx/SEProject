@@ -75,11 +75,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               icon={<Receipt className="w-5 h-5" />}
               label="Expenses"
             />
-            {/* <NavItem 
-                href="/reports" 
+            <NavItem 
+                href="/preferences" 
                 icon={<BarChart className="w-5 h-5" />} 
-                label="Reports" 
-              /> */}
+                label="Preferences" 
+              />
           </nav>
 
       

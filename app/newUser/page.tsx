@@ -19,7 +19,7 @@ export default async function connect() {
         fullName: user.username,
       },
     });
-    console.log("User created succesfully");
+    redirect("/preferences");
   }
   redirect("/dashboard");
 }

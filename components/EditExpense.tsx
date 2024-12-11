@@ -63,7 +63,7 @@ export default function EditExpense({ expense }) {
   return (
     <div className="flex items-center justify-center w-full h-full bg-white">
       <div className="w-full max-w-md px-6 py-8 space-y-6">
-        {/* Title */}
+     
         <div className="text-center mb-6">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             Edit Expense
@@ -73,9 +73,31 @@ export default function EditExpense({ expense }) {
           </p>
         </div>
 
-        {/* Form */}
+  
         <form className="space-y-6" action={formAction}>
-          {/* Amount Input */}
+        <div>
+            <label
+              htmlFor="category"
+              className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
+            >
+              <Tags className="mr-2 text-purple-500" size={18} />
+              Category
+            </label>
+            <select
+              required
+              id="category"
+              name="category"
+              defaultValue={expense.category}
+              className="block w-full p-3 border-2 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 text-gray-700"
+            >
+              {Object.keys(Category).map((cat) => (
+                <option key={cat} value={cat} className="flex items-center">
+                  {Category[cat].icon} {Category[cat].label}
+                </option>
+              ))}
+            </select>
+          </div>
+     
           <div className="relative">
             <label
               htmlFor="amount"
@@ -102,7 +124,7 @@ export default function EditExpense({ expense }) {
             </div>
           </div>
 
-          {/* Description Input */}
+      
           <div>
             <label
               htmlFor="description"
@@ -138,31 +160,10 @@ export default function EditExpense({ expense }) {
                 className="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-pink-500 focus:border-pink-500 transition-all text-gray-900"
               />
             </div>
-          {/* Category Select */}
-          <div>
-            <label
-              htmlFor="category"
-              className="block text-sm font-medium text-gray-700 mb-2 flex items-center"
-            >
-              <Tags className="mr-2 text-purple-500" size={18} />
-              Category
-            </label>
-            <select
-              required
-              id="category"
-              name="category"
-              defaultValue={expense.category}
-              className="block w-full p-3 border-2 border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300 text-gray-700"
-            >
-              {Object.keys(Category).map((cat) => (
-                <option key={cat} value={cat} className="flex items-center">
-                  {Category[cat].icon} {Category[cat].label}
-                </option>
-              ))}
-            </select>
-          </div>
+   
 
-          {/* Submit Button */}
+
+      
           <div className="pt-4">
             <button
               type="submit"
@@ -184,7 +185,7 @@ export default function EditExpense({ expense }) {
           </div>
         </form>
 
-        {/* Optional Success/Error State Handling */}
+   
         {state?.data && (
           <div
             className="fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded"
